@@ -1,0 +1,41 @@
+h1 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 8px;
+}
+
+p {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 8px;
+    gap: 4px;
+}
+
+.textinput {
+    display: flex;
+    padding: 16px 0px;
+    gap: 8px;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+}
+
+.numbers {
+    display: flex;
+    padding: 8px;
+    gap: 16px;
+}
+ 

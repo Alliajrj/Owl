@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;600&display=swap");
+@import "images.css";
+@import "text.css";
+@import "navbar.css";
+@import "post.css";
+@import "button.css";
+@import "sidebar.css";
+@import "popup.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px;
+    /* min height pour toujours avoir le background color en entier */
+    min-height: 100vh; 
+    width: 100%;
+
+    background-image: linear-gradient(
+        167.95deg,
+        #9e6c5c 0%,
+        #5e4239 29.58%,
+        #47332c 51.98%,
+        #3b2b26 73.85%,
+        #2c211d 95.21%
+    );
+
+    font-family: Raleway;
+    color: rgb(255, 228, 228);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 16px;
+    width: 100%;
+}
+
