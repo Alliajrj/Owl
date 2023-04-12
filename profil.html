@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="css/style.css" />
         <script src="javascript/sidebar.js" defer></script>
         <script src="javascript/modal.js" defer></script>
+        <script src="javascript/deletebutton.js" defer></script>
     </head>
     <body>
         <div class="card hidden">
@@ -49,6 +50,11 @@
                     alt="add image"
                 />
             </div>
+        </div>
+        <div class="delete card hidden">
+            <p>Êtes-vous sûr(e) de vouloir supprimer ce post ?</p>
+            <button class="btn">Oui</button>
+            <button class="btn">Non</button>
         </div>
         <header>
             <img class="profil" src="images/PPAli.jpg" alt="profile pic" />
@@ -138,16 +144,23 @@
             </div>
             <div class="posts">
                 <div>
-                    <div class="user">
-                        <img
-                            class="round"
-                            src="images/PPAli.jpg"
-                            alt="profile pic"
-                        />
-                        <div class="name">
-                            <h1>Heart ♥</h1>
-                            <h2>@Allia - 2h</h2>
+                    <div class="post-top">
+                        <div class="user">
+                            <img
+                                class="round"
+                                src="images/PPAli.jpg"
+                                alt="profile pic"
+                            />
+                            <div class="name">
+                                <h1>Heart ♥</h1>
+                                <h2>@Allia - 2h</h2>
+                            </div>
                         </div>
+                        <img
+                            class="icons deletebtn"
+                            src="images/icons/trash-2.svg"
+                            alt="delete"
+                        />
                     </div>
                     <div class="textinput">
                         <p>“Making a Murderer” sur Netflix c’est grave cool</p>
@@ -176,16 +189,23 @@
                     </div>
                 </div>
                 <div>
-                    <div class="user">
-                        <img
-                            class="round"
-                            src="images/PPAli.jpg"
-                            alt="profile pic"
-                        />
-                        <div class="name">
-                            <h1>Heart ♥</h1>
-                            <h2>@Allia - 18h</h2>
+                    <div class="post-top">
+                        <div class="user">
+                            <img
+                                class="round"
+                                src="images/PPAli.jpg"
+                                alt="profile pic"
+                            />
+                            <div class="name">
+                                <h1>Heart ♥</h1>
+                                <h2>@Allia - 18h</h2>
+                            </div>
                         </div>
+                        <img
+                            class="icons deletebtn"
+                            src="images/icons/trash-2.svg"
+                            alt="delete"
+                        />
                     </div>
 
                     <img

@@ -16,6 +16,12 @@
     border-radius: 50px;
 }
 
+.post-top {
+    display: flex;
+    align-items: space-between;
+    justify-content: space-between;
+}
+
 .user {
     display: flex;
     align-items: center;
