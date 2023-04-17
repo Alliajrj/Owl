@@ -1,8 +1,10 @@
-const deletebtn = document.querySelector(".deletebtn");
+const deletebtn = document.querySelectorAll(".deletebtn");
 
-const deletepost = document.querySelector(".delete");
+const deletepost = document.querySelectorAll(".delete");
 
-const deleteclose = document.querySelector(".btn");
+const deleteclose = document.querySelectorAll(".btn");
+
+array.forEach((element) => {});
 
 deletebtn.addEventListener("click", () => {
     deletepost.classList.remove("hidden");
@@ -11,4 +13,3 @@ deletebtn.addEventListener("click", () => {
 deleteclose.addEventListener("click", () => {
     deletepost.classList.add("hidden");
 });
-

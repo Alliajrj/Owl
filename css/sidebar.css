@@ -5,39 +5,74 @@ li {
     box-sizing: border-box;
 }
 
-.wrapper {
-    position: fixed;
+@media (max-width: 1000px) {
+    .wrapper {
+        position: fixed;
 
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    transition: 0.2s;
-    z-index: 15;
-    pointer-events: none;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: 0.2s;
+        z-index: 15;
+        pointer-events: none;
+    }
+    .wrapper.slide {
+        pointer-events: all;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(15px);
+    }
+    .sidebar.slide {
+        right: 0;
+    }
+
+    .sidebar {
+        right: -285px;
+        width: 225px;
+    }
+    .ghost {
+        display: none;
+    }
+    .research {
+        left: -285px;
+    }
+    .research > .minus {
+        display: none;
+    }
+    .searchbar {
+        display: none;
+    }
 }
 
-.wrapper.slide {
-    pointer-events: all;
-    background:rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(15px);
+@media (min-width: 1000px) {
+    .menu {
+        display: none;
+    }
+
+    .profil {
+        display: none;
+    }
+    .sidebar {
+        background: rgba(38, 26, 22, 0.7);
+        backdrop-filter: blur(8px);
+        padding: 16px 16px;
+        width: 285px;
+
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
 }
 
 .sidebar {
     background: rgba(38, 26, 22, 0.7);
     backdrop-filter: blur(8px);
     padding: 16px 16px;
-    width: 225px;
     position: fixed;
     top: 0;
     bottom: 0;
-    right: -225px;
     z-index: 16;
     transition: all 0.5s ease;
-}
-
-.sidebar.slide {
-    right: 0;
 }
 
 .sidebar a {
@@ -55,10 +90,64 @@ li {
     margin-right: 8px;
 }
 
-
 .minus {
     opacity: 0.3;
-    height: 1px;
+    height: 1.5px;
     width: 100%;
     object-fit: cover;
+}
+
+@media (min-width: 1000px) {
+    .research {
+        display: flex;
+        flex-direction: column;
+        background: rgba(38, 26, 22, 0.7);
+        backdrop-filter: blur(8px);
+        padding: 16px 16px;
+        width: 285px;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        gap: 22px;
+        z-index: 16;
+        transition: all 0.5s ease;
+    }
+    .research > div {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        position: relative;
+    }
+
+    .research > div textarea {
+        padding-left: 30px;
+    }
+
+    .research > div > img {
+        position: absolute;
+        color: black;
+        width: 38px;
+    }
+    .searchbar {
+        display: flex;
+        align-content: flex-start;
+        font-family: Raleway;
+     background: rgba(0, 0, 0, 0.4); 
+        border: none;
+        color: rgba(255, 228, 228, 1);
+        border-radius: 25px;
+        resize: none;
+        outline: none;
+        width: 100%;
+        height: 6vh;
+        padding: 16px;
+        overflow: hidden;
+    }
+    .navbarbottom {
+        display: none;
+    }
+}
+
+.research {
+    position: fixed;
 }
