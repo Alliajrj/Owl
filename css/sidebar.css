@@ -120,13 +120,22 @@ li {
     }
 
     .research > div textarea {
-        padding-left: 30px;
+        padding-left: 40px;
     }
 
     .research > div > img {
         position: absolute;
         color: black;
         width: 38px;
+        padding-left: 12px;
+    }
+    .feather {
+        display: flex;
+        padding: 16px 8px;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+       
     }
     .searchbar {
         display: flex;

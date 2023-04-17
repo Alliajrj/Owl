@@ -8,8 +8,8 @@
     background: rgba(38, 26, 22, 0.8);
     backdrop-filter: blur(16px);
     border-radius: 32px;
-    height: 75vh;
-    width: 90vw;
+    height: 80vh;
+    max-width: 45vw;
     position: fixed;
     transition: 0.2s;
 }
@@ -27,6 +27,7 @@
 
 .write {
     display: flex;
+    justify-content: center;
     gap: 8px;
     width: 100%;
 }
@@ -59,7 +60,7 @@
     columns: 2;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1000px) {
     .tags-post > ul {
         display: flex;
         flex-wrap: wrap;
