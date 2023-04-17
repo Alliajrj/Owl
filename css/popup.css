@@ -19,6 +19,27 @@
     pointer-events: none;
 }
 
+.deletecard {
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+    padding: 32px;
+    gap: 16px;
+
+    background: rgba(38, 26, 22, 0.8);
+    backdrop-filter: blur(16px);
+    border-radius: 32px;
+    height: 30vh;
+    max-width: 45vw;
+    position: fixed;
+    transition: 0.2s;
+}
+
+.deletecard.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .top {
     display: flex;
     justify-content: space-between;

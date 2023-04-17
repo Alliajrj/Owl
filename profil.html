@@ -51,18 +51,23 @@
                 />
             </div>
         </div>
-        <div class="delete card hidden">
+        <div class="deletecard hidden">
             <p>Êtes-vous sûr(e) de vouloir supprimer ce post ?</p>
             <button class="btn">Oui</button>
             <button class="btn">Non</button>
         </div>
-        <header>
-            <img class="profil" src="images/PPAli.jpg" alt="profile pic" />
+        <div class="research">
+            <div>
+                <img src="images/icons/key.svg" alt="research" />
+                <textarea
+                    class="searchbar"
+                    id="post"
+                    placeholder=". . ."
+                ></textarea>
+            </div>
+            <img class="minus" src="images/icons/minus.svg" alt="minus" />
+        </div>
 
-            <img class="logo" src="images/logo owl.png" alt="logo" />
-
-            <img class="menu" src="images/icons/menu.svg" alt="menu" />
-        </header>
         <div class="wrapper"></div>
         <div class="sidebar">
             <div class="user">
@@ -125,117 +130,133 @@
                     />Déconnexion
                 </li>
             </ol>
-        </div>
-        <div class="banner">
-            <div class="name">
-                <h1>Heart ♥</h1>
-                <h2>@Allia</h2>
-            </div>
-            <div class="numbers">
-                <p>78 abonnements</p>
-                <p>52 abonnés</p>
-                <p>2 posts</p>
+            <div class="feather">
+                <img src="images/icons/feather.svg" alt="" />
             </div>
         </div>
-        <div class="container">
-            <div class="buttons">
-                <button>POSTS</button>
-                <button>MEDIAS</button>
-            </div>
-            <div class="posts">
-                <div>
-                    <div class="post-top">
-                        <div class="user">
-                            <img
-                                class="round"
-                                src="images/PPAli.jpg"
-                                alt="profile pic"
-                            />
-                            <div class="name">
-                                <h1>Heart ♥</h1>
-                                <h2>@Allia - 2h</h2>
-                            </div>
-                        </div>
-                        <img
-                            class="icons deletebtn"
-                            src="images/icons/trash-2.svg"
-                            alt="delete"
-                        />
-                    </div>
-                    <div class="textinput">
-                        <p>“Making a Murderer” sur Netflix c’est grave cool</p>
-                    </div>
-                    <div class="interactions">
-                        <img
-                            class="icons"
-                            src="images/icons/bookmark.svg"
-                            alt=""
-                        />
-                        <div class="reactions">
-                            <img
-                                class="icons"
-                                src="images/icons/zap.svg"
-                                alt="like"
-                            /><img
-                                class="icons"
-                                src="images/icons/navigation.svg"
-                                alt="send"
-                            /><img
-                                class="icons"
-                                src="images/icons/message-square.svg"
-                                alt="commentaire"
-                            />
-                        </div>
-                    </div>
+        <div class="main">
+            <header>
+                <div class="ghost"></div>
+                <img class="profil" src="images/PPAli.jpg" alt="profile pic" />
+
+                <img class="logo" src="images/logo owl.png" alt="logo" />
+
+                <img class="menu" src="images/icons/menu.svg" alt="menu" />
+                <div class="ghost"></div>
+            </header>
+            <div class="banner">
+                <div class="name">
+                    <h1>Heart ♥</h1>
+                    <h2>@Allia</h2>
                 </div>
-                <div>
-                    <div class="post-top">
-                        <div class="user">
+                <div class="numbers">
+                    <p>78 abonnements</p>
+                    <p>52 abonnés</p>
+                    <p>2 posts</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="buttons">
+                    <button>POSTS</button>
+                    <button>MEDIAS</button>
+                </div>
+                <div class="posts">
+                    <div>
+                        <div class="post-top">
+                            <div class="user">
+                                <img
+                                    class="round"
+                                    src="images/PPAli.jpg"
+                                    alt="profile pic"
+                                />
+                                <div class="name">
+                                    <h1>Heart ♥</h1>
+                                    <h2>@Allia - 2h</h2>
+                                </div>
+                            </div>
                             <img
-                                class="round"
-                                src="images/PPAli.jpg"
-                                alt="profile pic"
+                                class="icons deletebtn"
+                                src="images/icons/trash-2.svg"
+                                alt="delete"
                             />
-                            <div class="name">
-                                <h1>Heart ♥</h1>
-                                <h2>@Allia - 18h</h2>
+                        </div>
+                        <div class="textinput">
+                            <p>
+                                “Making a Murderer” sur Netflix c’est grave cool
+                            </p>
+                        </div>
+                        <div class="interactions">
+                            <img
+                                class="icons"
+                                src="images/icons/bookmark.svg"
+                                alt=""
+                            />
+                            <div class="reactions">
+                                <img
+                                    class="icons"
+                                    src="images/icons/zap.svg"
+                                    alt="like"
+                                /><img
+                                    class="icons"
+                                    src="images/icons/navigation.svg"
+                                    alt="send"
+                                /><img
+                                    class="icons"
+                                    src="images/icons/message-square.svg"
+                                    alt="commentaire"
+                                />
                             </div>
                         </div>
-                        <img
-                            class="icons deletebtn"
-                            src="images/icons/trash-2.svg"
-                            alt="delete"
-                        />
                     </div>
+                    <div>
+                        <div class="post-top">
+                            <div class="user">
+                                <img
+                                    class="round"
+                                    src="images/PPAli.jpg"
+                                    alt="profile pic"
+                                />
+                                <div class="name">
+                                    <h1>Heart ♥</h1>
+                                    <h2>@Allia - 18h</h2>
+                                </div>
+                            </div>
+                            <img
+                                class="icons deletebtn"
+                                src="images/icons/trash-2.svg"
+                                alt="delete"
+                            />
+                        </div>
 
-                    <img
-                        class="media"
-                        src="images/pf layton et destin perdu.jpg"
-                        alt="media"
-                    />
-
-                    <div class="interactions">
                         <img
-                            class="icons"
-                            src="images/icons/bookmark.svg"
-                            alt="bookmark"
+                            class="media"
+                            src="images/pf layton et destin perdu.jpg"
+                            alt="media"
                         />
-                        <div class="reactions">
+
+                        <div class="interactions">
                             <img
                                 class="icons"
-                                src="images/icons/zap.svg"
-                                alt="like"
+                                src="images/icons/bookmark.svg"
+                                alt="bookmark"
                             />
-                            <img
-                                class="icons"
-                                src="images/icons/navigation.svg"
-                                alt="send"
-                            />
-                            <img
-                                class="icons"
-                                src="images/icons/message-square.svg"
-                                alt="commentaire"
-                            />
+                            <div class="reactions">
+                                <img
+                                    class="icons"
+                                    src="images/icons/zap.svg"
+                                    alt="like"
+                                />
+                                <img
+                                    class="icons"
+                                    src="images/icons/navigation.svg"
+                                    alt="send"
+                                />
+                                <img
+                                    class="icons"
+                                    src="images/icons/message-square.svg"
+                                    alt="commentaire"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

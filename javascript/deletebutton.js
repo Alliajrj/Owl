@@ -1,15 +1,14 @@
-const deletebtn = document.querySelectorAll(".deletebtn");
+// const deletebtn = document.querySelectorAll(".deletebtn");
 
-const deletepost = document.querySelectorAll(".delete");
+// const deletepost = document.querySelectorAll(".deletecard");
 
-const deleteclose = document.querySelectorAll(".btn");
+// deletebtn.addEventListener("click", () => {
+//     deletepost.classList.remove("hidden");
+// });
 
-array.forEach((element) => {});
+// const deleteclose = document.querySelector(".btn");
 
-deletebtn.addEventListener("click", () => {
-    deletepost.classList.remove("hidden");
-});
+// deleteclose.addEventListener("click", () => {
+//     deletepost.classList.add("hidden");
+// });
 
-deleteclose.addEventListener("click", () => {
-    deletepost.classList.add("hidden");
-});
