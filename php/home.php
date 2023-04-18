@@ -158,6 +158,9 @@
             </ul>
         </div>
         <div class="container">
+        <?php
+    foreach ($posts as $post) {
+        ?>
             <div class="posts">
                 <div>
                     <div class="user">
@@ -182,7 +185,7 @@
                         <p>
                             <?= $post["post_content"] ?>
                         </p>
-                        <img src="<?= $post_pic['post_pic'] ?>" alt="🖼️" />
+                        <img class="media" src="<?= $post_pic['post_pic'] ?>" alt="🖼️" />
                     </div>
 
                     <div class="interactions">
@@ -194,94 +197,10 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="user">
-                        <img class="round" src="images/ppMiguel.jpg" alt="profile pic" />
-                        <div class="name">
-                            <h1>Spade ♠</h1>
-                            <h2>@Kan_a_pesh - 23h</h2>
-                        </div>
-                    </div>
-                    <div class="textinput">
-                        <p>La disparition d'Elisa Lam - THREAD</p>
-                    </div>
-                    <img class="media" src="images/elisalam.jpg" alt="media" />
 
-                    <div class="interactions">
-                        <img class="icons" src="images/icons/bookmark.svg" alt="bookmark" />
-                        <div class="reactions">
-                            <img class="icons" src="images/icons/zap.svg" alt="like" />
-                            <img class="icons" src="images/icons/navigation.svg" alt="send" />
-                            <img class="icons" src="images/icons/message-square.svg" alt="commentaire" />
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="user">
-                        <img class="round" src="images/PPLeo.jpg" alt="profile pic" />
-                        <div class="name">
-                            <h1>Clubs ♣</h1>
-                            <h2>@Saikochi - 28/01</h2>
-                        </div>
-                    </div>
-                    <div class="textinput">
-                        <p>
-                            Vos théories sur l'affaire Xavier Dupont De
-                            Ligones ?
-                        </p>
-                    </div>
-                    <div class="interactions">
-                        <img class="icons" src="images/icons/bookmark.svg" alt="" />
-                        <div class="reactions">
-                            <img class="icons" src="images/icons/zap.svg" alt="like" /><img class="icons"
-                                src="images/icons/navigation.svg" alt="send" /><img class="icons"
-                                src="images/icons/message-square.svg" alt="commentaire" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="navbarbottom">
-        <div class="navbarleft">
-            <img src="images/icons/star.svg" alt="notifications" />
-            <img src="images/icons/key.svg" alt="search" />
-        </div>
-        <img src="images/icons/feather.svg" alt="write a post" id="plume" />
-    </div>
-    <?php require_once 'index.template.php'; ?>
 
-    <?php
-    foreach ($posts as $post) {
-        ?>
-        <div class="div-publication">
-            <img class="pp" src="<?= $user_pic['user_pic'] ?>" alt="🖼️" />
-            <div class="content-publication">
-                <div class="id">
-                    <div class="name">
-                        <h2 class="username">
-                            <?= $user["user_name"] ?>
-                        </h2>
-                    </div>
-                    <div class="div-handle">
-                        <h2 class="handle">
-                            <?= $user["user_nickname"] ?>
-                        </h2>
-                        <h3 class="dash">-</h3>
-                        <h3 class="time">
-                            <?= date("d/m/Y", strtotime($post['post_date'])) . " à " . date("H:i", strtotime($post['post_date'])); ?>
-                        </h3>
-                    </div>
-                </div>
-                <div class="post">
-                    <p>
-                        <?= $post["post_content"] ?>
-                    </p>
-                    <img src="<?= $post_pic['post_pic'] ?>" alt="🖼️" />
-                </div>
             </div>
-        </div>
-        <?php
+            <?php
     }
     ?>
 
@@ -296,6 +215,18 @@
         </form>
         <br>
     <?php } ?>
+
+
+        </div>
+    </div>
+    <div class="navbarbottom">
+        <div class="navbarleft">
+            <img src="images/icons/star.svg" alt="notifications" />
+            <img src="images/icons/key.svg" alt="search" />
+        </div>
+        <img src="images/icons/feather.svg" alt="write a post" id="plume" />
+    </div>
+    <?php require_once 'index.template.php'; ?>
 </body>
 
 </html>
