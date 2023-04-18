@@ -42,6 +42,10 @@ li {
     .searchbar {
         display: none;
     }
+    .feather {
+        display: none;
+       
+    }
 }
 
 @media (min-width: 1000px) {

@@ -131,7 +131,7 @@
                 </li>
             </ol>
             <div class="feather">
-                <img src="images/icons/feather.svg" alt="" />
+                <img src="images/icons/feather.svg" alt="" id="plume" />
             </div>
         </div>
         <div class="main">
@@ -139,7 +139,7 @@
                 <div class="ghost"></div>
                 <img class="profil" src="images/PPAli.jpg" alt="profile pic" />
 
-                <img class="logo" src="images/logo owl.png" alt="logo" />
+                <img class="logo" src="images/logoowl.png" alt="logo" />
 
                 <img class="menu" src="images/icons/menu.svg" alt="menu" />
                 <div class="ghost"></div>
@@ -230,7 +230,7 @@
 
                         <img
                             class="media"
-                            src="images/pf layton et destin perdu.jpg"
+                            src="images/pl.jpg"
                             alt="media"
                         />
 
