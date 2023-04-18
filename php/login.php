@@ -76,7 +76,7 @@
                 <div class="d-flex justify-content-center">
                     <label
                         >Pas encore membre ?
-                        <a href="register.html" class="link"> Inscrivez-vous !</a></label
+                        <a href="../php/register.php" class="link"> Inscrivez-vous !</a></label
                     >
                 </div>
             </form>

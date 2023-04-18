@@ -9,6 +9,9 @@
     <title>Owl</title>
     <script src="javascript/sidebar.js" defer></script>
     <script src="javascript/modal.js" defer></script>
+    <style>
+        <?php include '../css/style.css'; ?>
+    </style>
 </head>
 
 <body>
@@ -18,6 +21,10 @@
     $request = $database->prepare("SELECT * FROM posts ORDER BY post_date DESC");
     $request->execute();
     $posts = $request->fetchAll(PDO::FETCH_ASSOC);
+
+    $request = $database->prepare("SELECT * FROM users");
+    $request->execute();
+    $users = $request->fetchAll(PDO::FETCH_ASSOC);
 
     if ($_SERVER['REQUEST_METHOD'] === "GET") {
         if (
@@ -158,63 +165,63 @@
             </ul>
         </div>
         <div class="container">
-        <?php
-    foreach ($posts as $post) {
-        ?>
-            <div class="posts">
-                <div>
-                    <div class="user">
-                        <img class="round" src="<?= $user_pic['user_pic'] ?>" alt="profile pic" />
-                        <div class="name">
-                            <div class="name">
-                                <h1>
-                                    <?= $user["user_name"] ?>
-                                </h1>
-                                <h2>
-                                    <?= $user["user_nickname"] ?>
-                                </h2>
-                                <h3>
-                                    <?= date("d/m/Y", strtotime($post['post_date'])) . " à " . date("H:i", strtotime($post['post_date'])); ?>
-                                </h3>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="textinput">
-
-                        <p>
-                            <?= $post["post_content"] ?>
-                        </p>
-                        <img class="media" src="<?= $post_pic['post_pic'] ?>" alt="🖼️" />
-                    </div>
-
-                    <div class="interactions">
-                        <img class="icons" src="images/icons/bookmark.svg" alt="" />
-                        <div class="reactions">
-                            <img class="icons" src="images/icons/zap.svg" alt="like" /><img class="icons"
-                                src="images/icons/navigation.svg" alt="send" /><img class="icons"
-                                src="images/icons/message-square.svg" alt="commentaire" />
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
             <?php
-    }
-    ?>
+            foreach ($posts as $post) {
+                ?>
+                <div class="posts">
+                    <div>
+                        <div class="user">
+                            <img class="round" src="<?= $user_pic['user_pic'] ?>" alt="profile pic" />
+                            <div class="name">
+                                <div class="name">
+                                    <h1>
+                                        <?= $users["user_name"] ?>
+                                    </h1>
+                                    <h2>
+                                        <?= $users["user_nickname"] ?>
+                                    </h2>
+                                    <h3>
+                                        <?= date("d/m/Y", strtotime($post['post_date'])) . " à " . date("H:i", strtotime($post['post_date'])); ?>
+                                    </h3>
+                                </div>
 
-    <?php foreach ($posts as $post) {
-        echo "<p>" . $post["post_content"] . "</p>";
-        echo date("d/m/Y", strtotime($post['post_date'])) .
-            " à " . date("H:i", strtotime($post['post_date'])); ?>
-        <form action="../php/delete.php" method="post">
-            <input type="hidden" name="form" value="formulaire_supp_post">
-            <input type="hidden" name="post_id" value="<?php echo $post['post_id'] ?>">
-            <input type="submit" value="delete">
-        </form>
-        <br>
-    <?php } ?>
+                            </div>
+                        </div>
+                        <div class="textinput">
+
+                            <p>
+                                <?= $post["post_content"] ?>
+                            </p>
+                            <img class="media" src="<?= $post_pic['post_pic'] ?>" alt="🖼️" />
+                        </div>
+
+                        <div class="interactions">
+                            <img class="icons" src="images/icons/bookmark.svg" alt="" />
+                            <div class="reactions">
+                                <img class="icons" src="images/icons/zap.svg" alt="like" /><img class="icons"
+                                    src="images/icons/navigation.svg" alt="send" /><img class="icons"
+                                    src="images/icons/message-square.svg" alt="commentaire" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <?php
+            }
+            ?>
+
+            <?php foreach ($posts as $post) {
+                echo "<p>" . $post["post_content"] . "</p>";
+                echo date("d/m/Y", strtotime($post['post_date'])) .
+                    " à " . date("H:i", strtotime($post['post_date'])); ?>
+                <form action="../php/delete.php" method="post">
+                    <input type="hidden" name="form" value="formulaire_supp_post">
+                    <input type="hidden" name="post_id" value="<?php echo $post['post_id'] ?>">
+                    <input type="submit" value="delete">
+                </form>
+                <br>
+            <?php } ?>
 
 
         </div>
