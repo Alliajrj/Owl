@@ -46,9 +46,11 @@
                 !empty($_POST['post_content'])
             ) {
                 $post_content = $_POST['post_content'];
-                $data = ["post_content" => $post_content];
-                $request_insert = $database->prepare("INSERT INTO posts (post_content, post_date) VALUES (:post_content, NOW())");
+                $userid = $_POST['userid'];
+                $data = ["post_content" => $post_content, "userid" => $userid];
+                $request_insert = $database->prepare("INSERT INTO posts (post_author_id, post_content, post_date) VALUES (:userid, :post_content, NOW())");
                 $post_inserted = $request_insert->execute($data);
+                header("Location: ../php/home.php");
             }
         }
     }
@@ -67,6 +69,7 @@
             <div class="write">
 
                 <input type="hidden" name="form" value="formulaire_ajout_post">
+                <input type="hidden" name="userid" value="<?= $_SESSION['user_id']; ?>">
 
                 <input class="text-input" placeholder=". . ." name="post_content" id="post_content" cols="30" rows="10"
                     required></input>
@@ -104,13 +107,16 @@
     </div>
     <div class="wrapper"></div>
     <div class="sidebar">
-        <div class="user">
-            <img class="round" src="../images/PPAli.jpg" alt="profile pic" />
-            <div class="name">
-                <h1>Heart ♥</h1>
-                <h2>@Allia</h2>
+
+        <a href="../php/profil.php">
+            <div class="user">
+                <img class="round" src="../images/PPAli.jpg" alt="profile pic" />
+                <div class="name">
+                    <h1>Heart ♥</h1>
+                    <h2>@Allia</h2>
+                </div>
             </div>
-        </div>
+        </a>
 
         <img class="minus" src="../images/icons/minus.svg" alt="minus" />
         <ol>
@@ -183,10 +189,10 @@
                             <div class="name">
                                 <div class="name">
                                     <h1>
-                                        <?= $users["user_name"]; ?>
+                                        <?= $post["post_id"]; ?>
                                     </h1>
                                     <h2>
-                                        <?= $users["user_nickname"]; ?>
+                                        <?= $post["post_author_id"]; ?>
                                     </h2>
                                     <h3>
                                         <?= date("d/m/Y", strtotime($post['post_date'])) . " à " . date("H:i", strtotime($post['post_date'])); ?>

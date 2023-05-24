@@ -33,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $post_inserted = $request_insert->execute($data);
         }
     }
+    header("Location: ../php/home.php");
 }
 require_once 'home.php';
+require_once 'profil.php';
 ?>

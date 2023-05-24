@@ -77,9 +77,9 @@
     gap: 16px;
 }
 
-    .tags-post > ul {
-        columns: 2;
-    }
+.tags-post > ul {
+    columns: 2;
+}
 
 @media screen and (min-width: 1000px) {
     .tags-post > ul {

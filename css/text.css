@@ -32,12 +32,6 @@ p {
     gap: 8px;
 }
 
-.banner {
-    display: flex;
-    flex-direction: column;
-    margin-top: 16px;
-}
-
 .numbers {
     display: flex;
     padding: 8px;

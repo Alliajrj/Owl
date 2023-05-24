@@ -31,6 +31,7 @@ body {
         #2c211d 95.21%
     );
 
+    background-attachment: fixed;
     font-family: Raleway;
     color: rgb(255, 228, 228);
 }
@@ -49,4 +50,3 @@ body {
     gap: 16px;
     width: 100%;
 }
-

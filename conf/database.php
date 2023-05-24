@@ -10,4 +10,6 @@ try {
 } catch (PDOException $ex) {
     die("Erreur: " . $ex->getMessage());
 }
+
+session_start();
 ?>

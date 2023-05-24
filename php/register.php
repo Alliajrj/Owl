@@ -1,6 +1,7 @@
 <?php
 require_once '../conf/database.php';
 
+
 if (isset($_POST['envoi'])) {
 
     if (empty($_POST['user_name']) or empty($_POST['user_nickname']) or empty($_POST['user_mail']) or empty($_POST['user_password']) or empty($_POST['user_pic'])) {
