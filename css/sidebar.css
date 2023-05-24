@@ -44,7 +44,6 @@ li {
     }
     .feather {
         display: none;
-       
     }
 }
 
@@ -122,16 +121,10 @@ li {
         flex-direction: row;
         position: relative;
     }
-
-    .research > div textarea {
-        padding-left: 40px;
-    }
-
-    .research > div > img {
-        position: absolute;
-        color: black;
-        width: 38px;
-        padding-left: 12px;
+    .searchbar {
+        background-image: url(../images/icons/key.svg);
+        background-position: left;
+        display:inline-block ;
     }
     .feather {
         display: flex;
@@ -139,23 +132,20 @@ li {
         bottom: 0;
         right: 0;
         position: absolute;
-       
     }
     .searchbar {
         display: flex;
         align-content: flex-start;
         font-family: Raleway;
-     background: rgba(0, 0, 0, 0.4); 
+        background: rgba(0, 0, 0, 0.4);
         border: none;
         color: rgba(255, 228, 228, 1);
         border-radius: 25px;
-        resize: none;
-        outline: none;
         width: 100%;
-        height: 6vh;
         padding: 16px;
         overflow: hidden;
     }
+
     .navbarbottom {
         display: none;
     }

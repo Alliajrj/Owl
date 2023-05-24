@@ -24,4 +24,5 @@ if (isset($_POST['envoi'])) {
     $_SESSION['user_id'] = $last_id;
     header('Location: ./index.php');
 }
+require_once "../php/register.template.php"
 ?>

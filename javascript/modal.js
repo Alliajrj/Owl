@@ -2,16 +2,16 @@ const modal = document.querySelector(".card");
 
 const plume = document.querySelector("#plume");
 
-const croix = document.querySelector(".card>.top>.icons:nth-child(1)")
+const plume2 = document.querySelector("#plume2");
 
-const check = document.querySelector(".card>.top>.icons:nth-child(2)")
+const croix = document.querySelector(".close");
 
-plume.addEventListener ("click", () => {
-    modal.classList.toggle("hidden")
-})
-croix.addEventListener ("click", () => {
-    modal.classList.toggle("hidden")
-})
-check.addEventListener ("click", () => {
-    modal.classList.toggle("hidden")
-})
+plume.addEventListener("click", () => {
+    modal.classList.remove("hidden");
+});
+plume2.addEventListener("click", () => {
+    modal.classList.remove("hidden");
+});
+croix.addEventListener("click", () => {
+    modal.classList.add("hidden");
+});

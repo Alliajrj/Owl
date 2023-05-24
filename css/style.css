@@ -35,10 +35,9 @@ body {
     color: rgb(255, 228, 228);
 }
 
-.main{
+.main {
     display: flex;
     flex-direction: column;
-  
 }
 
 .container {
@@ -50,5 +49,4 @@ body {
     gap: 16px;
     width: 100%;
 }
-
 

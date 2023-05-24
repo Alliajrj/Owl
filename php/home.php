@@ -55,14 +55,25 @@
 
     ?>
     <div class="card hidden">
-        <div class="top">
-            <img class="icons" src="../images/icons/x.svg" alt="close" />
-            <img class="icons" type="submit" src="../images/icons/check.svg" alt="confirm" />
-        </div>
-        <div class="write">
-            <img class="profil" src="../images/PPAli.jpg" alt="profile pic" />
-            <textarea class="text-input" id="post" placeholder=". . ."></textarea>
-        </div>
+
+        <form class="post" action="home.php" method="POST">
+            <div class="top">
+                <button class="close" type="close" value="Close"><img class="icons" src="../images/icons/x.svg"
+                        alt="close" />
+                </button>
+                <button type="submit" value="Send"><img class="icons" src="../images/icons/check.svg" alt="confirm" />
+                </button>
+            </div>
+            <div class="write">
+
+                <input type="hidden" name="form" value="formulaire_ajout_post">
+
+                <input class="text-input" placeholder=". . ." name="post_content" id="post_content" cols="30" rows="10"
+                    required></input>
+            </div>
+
+
+        </form>
         <div class="tags-post">
             <ul>
                 <li class="couleur-tag-1">Mystère</li>
@@ -83,59 +94,59 @@
         </div>
     </div>
 
-    <div>
-        <div class="research">
+    <div class="research">
+        <form action="" method="GET">
             <div>
-                <img src="../images/icons/key.svg" alt="research" />
-                <textarea class="searchbar" id="post" placeholder=". . ."></textarea>
+                <input class="searchbar" placeholder=". . ." type="text" name="recherche" id="recherche">
             </div>
             <img class="minus" src="../images/icons/minus.svg" alt="minus" />
-        </div>
-        <div class="wrapper"></div>
-        <div class="sidebar">
-            <div class="user">
-                <img class="round" src="../images/PPAli.jpg" alt="profile pic" />
-                <div class="name">
-                    <h1>Heart ♥</h1>
-                    <h2>@Allia</h2>
-                </div>
+        </form>
+    </div>
+    <div class="wrapper"></div>
+    <div class="sidebar">
+        <div class="user">
+            <img class="round" src="../images/PPAli.jpg" alt="profile pic" />
+            <div class="name">
+                <h1>Heart ♥</h1>
+                <h2>@Allia</h2>
             </div>
+        </div>
 
-            <img class="minus" src="../images/icons/minus.svg" alt="minus" />
-            <ol>
-                <li>
-                    <a href="#">
-                        <img class="icons" src="../images/icons/home.svg" alt="home" />Home</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="icons" src="../images/icons/book-open.svg" alt="news" />News</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="icons" src="../images/icons/star.svg" alt="notifications" />Notifications</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="icons" src="../images/icons/mail.svg" alt="messages" />Messages</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="icons" src="../images/icons/bookmark.svg" alt="bookmark" />Bookmarks</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="icons" src="../images/icons/settings.svg" alt="paramètres" />Paramètres</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="icons" src="../images/icons/power.svg" alt="déconnexion" />Déconnexion</a>
-                </li>
-            </ol>
-            <div class="feather">
-                <img src="../images/icons/feather.svg" alt="" id="plume" />
-            </div>
+        <img class="minus" src="../images/icons/minus.svg" alt="minus" />
+        <ol>
+            <li>
+                <a href="#">
+                    <img class="icons" src="../images/icons/home.svg" alt="home" />Home</a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="icons" src="../images/icons/book-open.svg" alt="news" />News</a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="icons" src="../images/icons/star.svg" alt="notifications" />Notifications</a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="icons" src="../images/icons/mail.svg" alt="messages" />Messages</a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="icons" src="../images/icons/bookmark.svg" alt="bookmark" />Bookmarks</a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="icons" src="../images/icons/settings.svg" alt="paramètres" />Paramètres</a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="icons" src="../images/icons/power.svg" alt="déconnexion" />Déconnexion</a>
+            </li>
+        </ol>
+        <div class="feather">
+            <img src="../images/icons/feather.svg" alt="" id="plume" />
         </div>
+    </div>
     </div>
     <div class="main">
         <header>
@@ -172,10 +183,10 @@
                             <div class="name">
                                 <div class="name">
                                     <h1>
-                                        <?= $users["user_name"] ?>
+                                        <?= $users["user_name"]; ?>
                                     </h1>
                                     <h2>
-                                        <?= $users["user_nickname"] ?>
+                                        <?= $users["user_nickname"]; ?>
                                     </h2>
                                     <h3>
                                         <?= date("d/m/Y", strtotime($post['post_date'])) . " à " . date("H:i", strtotime($post['post_date'])); ?>
@@ -214,8 +225,9 @@
             <img src="../images/icons/star.svg" alt="notifications" />
             <img src="../images/icons/key.svg" alt="search" />
         </div>
-        <img src="../images/icons/feather.svg" alt="write a post" id="plume" />
+        <img src="../images/icons/feather.svg" alt="write a post" id="plume2" />
     </div>
+
 </body>
 
 </html>
