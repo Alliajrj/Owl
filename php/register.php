@@ -4,7 +4,7 @@ require_once '../conf/database.php';
 if (isset($_POST['envoi'])) {
 
     if (empty($_POST['user_name']) or empty($_POST['user_nickname']) or empty($_POST['user_mail']) or empty($_POST['user_password']) or empty($_POST['user_pic'])) {
-        echo "Veuillez remplir tous les champs";
+        echo "Veuillez compléter tous les champs";
         die();
     }
 
@@ -22,7 +22,7 @@ if (isset($_POST['envoi'])) {
     $last_id = $database->lastInsertId();
 
     $_SESSION['user_id'] = $last_id;
-    header('Location: ./index.php');
+    header('Location: ../php/index.php');
 }
 require_once "../php/register.template.php"
-?>
+    ?>

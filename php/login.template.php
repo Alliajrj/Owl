@@ -15,19 +15,21 @@
     <div class="container">
         <img src="../images/logoowl.png" alt="logo" class="rounded shadow d-block mx-auto m-3" width="55px"
             height="55px" />
-        <form action="../php/login.php" class="d-flex flex-column justify-content-center">
+        <form action="../php/login.php" class="d-flex flex-column justify-content-center" method="POST">
             <div class="d-flex flex-column align-items-center">
                 <div class="form-floating col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-2 mb-3">
-                    <input type="text" class="form-control" id="username" placeholder=" " required />
+                    <input type="text" class="form-control" name="user_nickname" id="username" placeholder=" "
+                        required />
                     <label class="text" for="username">Nom d'utilisateur</label>
                 </div>
                 <div class="form-floating col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-2 mb-3">
-                    <input type="password" class="form-control" id="password" placeholder="Mot de passe" required />
+                    <input type="password" class="form-control" name="user_password" id="password"
+                        placeholder="Mot de passe" required />
                     <label class="text" for="password">Mot de passe</label>
                 </div>
             </div>
             <div class="d-flex d-flex-column justify-content-center m-3">
-                <button type="submit" id="login" class="btn d-flex justify-content-center">
+                <button type="submit" id="login" name="send" class="btn d-flex justify-content-center">
                     Connexion
                 </button>
             </div>
