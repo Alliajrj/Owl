@@ -74,19 +74,23 @@
 }
 
 @media (min-width: 1000px) {
-    .tags {
+    .tagspc {
         display: flex;
         justify-content: center;
         text-align: center;
         padding: 16px;
         max-width: 70vw;
     }
-    .tags > ul {
+    .tagspc > ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         columns: 1;
-        gap: 16px 8px;
+        gap: 8px 8px;
+    }
+
+    .tags {
+        display: none;
     }
 }
 .tags > ul {

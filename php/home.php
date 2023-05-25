@@ -63,44 +63,48 @@
             <p>Déjà inscrit ? <a class="link" href="../php/login.php" class="link">Connectez-vous !</a></p>
         </div>
     </div>
-    <div class="card hidden">
+    <div class="cardback">
+        <div class="card hidden">
 
-        <form class="post" action="home.php" method="POST">
-            <div class="top">
-                <button class="close" type="close" value="Close"><img class="icons" src="../images/icons/x.svg"
-                        alt="close" />
-                </button>
-                <button type="submit" value="Send"><img class="icons" src="../images/icons/check.svg" alt="confirm" />
-                </button>
+            <form class="post" action="home.php" method="POST">
+                <div class="top">
+                    <button class="close" type="close" value="Close"><img class="icons" src="../images/icons/x.svg"
+                            alt="close" />
+                    </button>
+                    <button type="submit" value="Send"><img class="icons" src="../images/icons/check.svg"
+                            alt="confirm" />
+                    </button>
+                </div>
+                <div class="write">
+
+                    <input type="hidden" name="form" value="formulaire_ajout_post">
+                    <input type="hidden" name="userid" value="<?= $_SESSION['user_id']; ?>">
+
+                    <input class="text-input" placeholder=". . ." name="post_content" id="post_content" cols="30"
+                        rows="10" required></input>
+                </div>
+
+
+            </form>
+
+            <div class="tags-post">
+                <ul>
+                    <li class="couleur-tag-1">Mystère</li>
+                    <li class="couleur-tag-2">Crime</li>
+                    <li class="couleur-tag-3">Non résolu</li>
+                    <li class="couleur-tag-4">Meurtre</li>
+                    <li class="couleur-tag-5">Investigation</li>
+                    <li class="couleur-tag-6">Faits divers</li>
+                    <li class="couleur-tag-7">Enigmes</li>
+                    <li class="couleur-tag-8">Preuves</li>
+                    <li class="couleur-tag-9">Théories</li>
+                    <li class="couleur-tag-10">paranormal</li>
+                </ul>
             </div>
-            <div class="write">
-
-                <input type="hidden" name="form" value="formulaire_ajout_post">
-                <input type="hidden" name="userid" value="<?= $_SESSION['user_id']; ?>">
-
-                <input class="text-input" placeholder=". . ." name="post_content" id="post_content" cols="30" rows="10"
-                    required></input>
+            <div class="bottom">
+                <img class="icons" src="../images/icons/file-plus.svg" alt="add file" />
+                <img class="icons" src="../images/icons/image.svg" alt="add image" />
             </div>
-
-
-        </form>
-        <div class="tags-post">
-            <ul>
-                <li class="couleur-tag-1">Mystère</li>
-                <li class="couleur-tag-2">Crime</li>
-                <li class="couleur-tag-3">Non résolu</li>
-                <li class="couleur-tag-4">Meurtre</li>
-                <li class="couleur-tag-5">Investigation</li>
-                <li class="couleur-tag-6">Faits divers</li>
-                <li class="couleur-tag-7">Enigmes</li>
-                <li class="couleur-tag-8">Preuves</li>
-                <li class="couleur-tag-9">Théories</li>
-                <li class="couleur-tag-10">paranormal</li>
-            </ul>
-        </div>
-        <div class="bottom">
-            <img class="icons" src="../images/icons/file-plus.svg" alt="add file" />
-            <img class="icons" src="../images/icons/image.svg" alt="add image" />
         </div>
     </div>
 
@@ -111,6 +115,20 @@
             </div>
             <img class="minus" src="../images/icons/minus.svg" alt="minus" />
         </form>
+        <div class="tagspc">
+            <ul>
+                <li class="couleur-tag-1">Mystère</li>
+                <li class="couleur-tag-2">Crime</li>
+                <li class="couleur-tag-3">Non résolu</li>
+                <li class="couleur-tag-4">Meurtre</li>
+                <li class="couleur-tag-5">Investigation</li>
+                <li class="couleur-tag-6">Faits divers</li>
+                <li class="couleur-tag-7">Enigmes</li>
+                <li class="couleur-tag-8">Preuves</li>
+                <li class="couleur-tag-9">Théories</li>
+                <li class="couleur-tag-10">Paranormal</li>
+            </ul>
+        </div>
     </div>
     <div class="wrapper"></div>
     <div class="sidebar">
@@ -159,10 +177,24 @@
                 <a href="#">
                     <img class="icons" src="../images/icons/settings.svg" alt="paramètres" />Paramètres</a>
             </li>
-            <li>
-                <a href="../php/deconnexion.php">
-                    <img class="icons" src="../images/icons/power.svg" alt="déconnexion" />Déconnexion</a>
-            </li>
+            <?php if (isset($_SESSION['user_name'])) { ?>
+                <li>
+                    <a href="../php/logout.php">
+                        <img class="icons" src="../images/icons/power.svg" alt="déconnexion" />Déconnexion</a>
+                </li>
+            <?php } ?>
+            <?php if (!isset($_SESSION['user_name'])) { ?>
+                <li>
+                    <a href="../php/login.php">
+                        <img class="icons" src="../images/icons/power.svg" alt="connexion" />Connexion</a>
+                </li>
+            <?php } ?>
+            <?php if (!isset($_SESSION['user_name'])) { ?>
+                <li>
+                    <a href="../php/register.php">
+                        <img class="icons" src="../images/icons/user.svg" alt="inscription" />Inscription</a>
+                </li>
+            <?php } ?>
         </ol>
         <div class="feather">
             <img src="../images/icons/feather.svg" alt="" id="plume" />
@@ -172,8 +204,9 @@
     <div class="main">
         <header>
             <div class="ghost"></div>
-            <img class="profil" src="../images/PPAli.jpg" alt="profile pic" />
-
+            <?php if (isset($_SESSION['user_name'])) { ?>
+                <img class="profil" src="<?= $user_pic['user_pic'] ?>" alt="profile pic" />
+            <?php } ?>
             <img class="logo" src="../images/logoowl.png" alt="logo" />
 
             <img class="menu" src="../images/icons/menu.svg" alt="menu" />
@@ -254,7 +287,6 @@
         <script src="../javascript/loginorsign.js" defer></script>
     <?php } ?>
 
-    ?>
 </body>
 
 </html>
