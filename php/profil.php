@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Owl</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="javascript/sidebar.js" defer></script>
-    <script src="javascript/modal.js" defer></script>
-    <script src="javascript/deletebutton.js" defer></script>
+    <script src="../javascript/sidebar.js" defer></script>
+    <script src="../javascript/modal.js" defer></script>
+    <script src="../javascript/deletebutton.js" defer></script>
 </head>
 
 <body>
@@ -29,11 +29,16 @@
 
     <div class="wrapper"></div>
     <div class="sidebar">
+
         <div class="user">
-            <img class="round" src="../images/PPAli.jpg" alt="profile pic" />
+            <img class="round" src="<?= $user_pic['user_pic'] ?>" alt="profile pic" />
             <div class="name">
-                <h1>Heart ♥</h1>
-                <h2>@Allia</h2>
+                <h1>
+                    <?= $post["post_id"]; ?>
+                </h1>
+                <h2>
+                    <?= $post["post_author_id"]; ?>
+                </h2>
             </div>
         </div>
 
@@ -64,7 +69,7 @@
                     <img class="icons" src="../images/icons/settings.svg" alt="paramètres" />Paramètres</a>
             </li>
             <li>
-                <a href="#">
+                <a href="../php/login.php">
                     <img class="icons" src="../images/icons/power.svg" alt="déconnexion" />Déconnexion</a>
             </li>
         </ol>
@@ -140,7 +145,6 @@
             <img src="../images/icons/star.svg" alt="notifications" />
             <img src="../images/icons/key.svg" alt="search" />
         </div>
-        <img src="../images/icons/feather.svg" alt="write a post" id="plume" />
     </div>
 </body>
 

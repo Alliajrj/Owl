@@ -15,8 +15,13 @@ if (isset($_POST['send'])) {
             die();
         }
 
-        $_SESSION['user_id'] = $user_insert->fetch()['user_id'];
-        header("Location: ../php/index.php");
+        $user = $user_insert->fetch();
+
+        $_SESSION['user_id'] = $user['user_id'];
+        $_SESSION['user_name'] = $user['user_name'];
+        $_SESSION['user_nickname'] = $user['user_nickname'];
+
+        header("Location: ../php/home.php");
         die();
     } else {
         echo "Veuillez compléter tous les champs...";

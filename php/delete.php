@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
             $request = $database->prepare("DELETE FROM posts WHERE post_id = :post_id");
             $request->execute($data);
-            header("Location: ../php/home.php");
+            header("Location: ../php/profil.php");
         }
     }
 }

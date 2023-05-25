@@ -56,6 +56,13 @@
     }
 
     ?>
+    <div class="background">
+        <div class="logsign">
+            <h1>Envie de lire la suite ?</h1>
+            <a href="../php/register.php"><button>Inscrivez-vous !</button></a>
+            <p>Déjà inscrit ? <a class="link" href="../php/login.php" class="link">Connectez-vous !</a></p>
+        </div>
+    </div>
     <div class="card hidden">
 
         <form class="post" action="home.php" method="POST">
@@ -109,13 +116,21 @@
     <div class="sidebar">
 
         <a href="../php/profil.php">
-            <div class="user">
-                <img class="round" src="../images/PPAli.jpg" alt="profile pic" />
-                <div class="name">
-                    <h1>Heart ♥</h1>
-                    <h2>@Allia</h2>
+            <?php if (isset($_SESSION['user_name'])) { ?>
+                <div class="user">
+                    <img class="round" src="<?= $user_pic['user_pic'] ?>" alt="profile pic" />
+                    <div class="name">
+
+                        <h1>
+                            <?php echo $_SESSION['user_name']; ?>
+                        </h1>
+                        <h2>
+                            <?php echo $_SESSION["user_nickname"]; ?>
+                        </h2>
+
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
         </a>
 
         <img class="minus" src="../images/icons/minus.svg" alt="minus" />
@@ -145,7 +160,7 @@
                     <img class="icons" src="../images/icons/settings.svg" alt="paramètres" />Paramètres</a>
             </li>
             <li>
-                <a href="#">
+                <a href="../php/deconnexion.php">
                     <img class="icons" src="../images/icons/power.svg" alt="déconnexion" />Déconnexion</a>
             </li>
         </ol>
@@ -234,6 +249,12 @@
         <img src="../images/icons/feather.svg" alt="write a post" id="plume2" />
     </div>
 
+    <?php
+    if (!isset($_SESSION['user_name'])) { ?>
+        <script src="../javascript/loginorsign.js" defer></script>
+    <?php } ?>
+
+    ?>
 </body>
 
 </html>

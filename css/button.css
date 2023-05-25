@@ -13,6 +13,12 @@ button {
     font-size: 18px;
 }
 
+button:hover {
+    color: rgb(255, 228, 228);
+    color: #9e6c5c;
+    background: rgba(0, 0, 0, 0.8);
+}
+
 .buttons {
     display: flex;
     justify-content: center;

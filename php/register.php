@@ -23,7 +23,7 @@ if (isset($_POST['envoi'])) {
     $last_id = $database->lastInsertId();
 
     $_SESSION['user_id'] = $last_id;
-    header('Location: ../php/index.php');
+    header('Location: ../php/login.php');
 }
 require_once "../php/register.template.php"
     ?>
