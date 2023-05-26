@@ -8,7 +8,6 @@
     <title>Owl</title>
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../javascript/sidebar.js" defer></script>
-    <script src="../javascript/modal.js" defer></script>
     <script src="../javascript/deletebutton.js" defer></script>
 </head>
 
@@ -25,11 +24,6 @@ $users = $request->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <body>
-    <div class="deletecard hidden">
-        <p>Êtes-vous sûr(e) de vouloir supprimer ce post ?</p>
-        <button class="btn">Oui</button>
-        <button class="btn">Non</button>
-    </div>
     <div class="research">
         <form action="" method="GET">
             <div>
@@ -127,7 +121,16 @@ $users = $request->fetchAll(PDO::FETCH_ASSOC);
                                         </h3>
                                     </div>
                                 </div>
+
                             </div>
+                            <form action="delete.php" method="POST">
+                                <input type="hidden" name="form" value="formulaire_supp_post" />
+                                <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>" />
+
+                                <button type="submit">
+                                    <img class="icons deletebtn" src="../images/icons/trash-2.svg" alt="delete" />
+                                </button>
+                            </form>
                         </div>
 
                         <div class="textinput">
@@ -153,7 +156,6 @@ $users = $request->fetchAll(PDO::FETCH_ASSOC);
                 <?php
             }
             ?>
-
         </div>
     </div>
     <div class="navbarbottom">

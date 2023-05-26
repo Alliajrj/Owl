@@ -1,14 +1,9 @@
-// const deletebtn = document.querySelectorAll(".deletebtn");
+const deletebtn = document.querySelectorAll(".deletebtn");
 
-// const deletepost = document.querySelectorAll(".deletecard");
-
-// deletebtn.addEventListener("click", () => {
-//     deletepost.classList.remove("hidden");
-// });
-
-// const deleteclose = document.querySelector(".btn");
-
-// deleteclose.addEventListener("click", () => {
-//     deletepost.classList.add("hidden");
-// });
-
+deletebtn.forEach(function (icon) {
+    console.log(icon);
+    icon.addEventListener("click", function () {
+        console.log("cc");
+        window.confirm("Êtes-vous sûr de supprimer le post ?");
+    });
+});
