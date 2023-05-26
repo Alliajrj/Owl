@@ -4,7 +4,7 @@ const plume = document.querySelector("#plume");
 
 const plume2 = document.querySelector("#plume2");
 
-const croix = document.querySelector(".close");
+const close = document.querySelector(".close");
 
 plume.addEventListener("click", () => {
     modal.classList.remove("hidden");
@@ -14,7 +14,7 @@ plume2.addEventListener("click", () => {
     modal.classList.remove("hidden");
     
 });
-croix.addEventListener("click", () => {
+close.addEventListener("click", () => {
     modal.classList.add("hidden");
     
 });

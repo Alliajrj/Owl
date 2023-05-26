@@ -14,7 +14,7 @@
 <?php
 require_once '../conf/database.php';
 ini_set("date.timezone", "Europe/Paris");
-$request = $database->prepare("SELECT * FROM posts ORDER BY post_date DESC");
+$request = $database->prepare("SELECT * FROM posts INNER JOIN users ON users.user_id = posts.post_author_id ORDER BY post_date DESC");
 $request->execute();
 $posts = $request->fetchAll(PDO::FETCH_ASSOC);
 
@@ -31,6 +31,20 @@ $users = $request->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <img class="minus" src="../images/icons/minus.svg" alt="minus" />
         </form>
+        <div class="tagspc">
+            <ul>
+                <li><button class="filter couleur-tag-1">Mystère</button></li>
+                <li><button class="filter couleur-tag-2">Crime</button></li>
+                <li><button class="filter couleur-tag-3">Non résolu</button></li>
+                <li><button class="filter couleur-tag-4">Meurtre</button></li>
+                <li><button class="filter couleur-tag-5">Investigation</button></li>
+                <li><button class="filter couleur-tag-6">Faits divers</button></li>
+                <li><button class="filter couleur-tag-7">Enigmes</button></li>
+                <li><button class="filter couleur-tag-8">Preuves</button></li>
+                <li><button class="filter couleur-tag-9">Théories</button></li>
+                <li><button class="filter couleur-tag-10">Paranormal</button></li>
+            </ul>
+        </div>
     </div>
 
     <div class="wrapper"></div>
@@ -103,56 +117,58 @@ $users = $request->fetchAll(PDO::FETCH_ASSOC);
             <?php
             foreach ($posts as $post) {
                 ?>
-                <div class="posts">
-                    <div>
-                        <div class="top">
-                            <div class="user">
-                                <img class="round" src="<?= $user_pic['user_pic'] ?>" alt="profile pic" />
-                                <div class="name">
+                <?php if ($post['post_author_id'] == $_SESSION['user_id']) { ?>
+                    <div class="posts">
+                        <div>
+                            <div class="top">
+                                <div class="user">
+                                    <img class="round" src="<?= $user_pic['user_pic'] ?>" alt="profile pic" />
                                     <div class="name">
-                                        <h1>
-                                            <?= $_SESSION["user_name"]; ?>
-                                        </h1>
-                                        <h2>
-                                            <?= $_SESSION["user_nickname"]; ?>
-                                        </h2>
-                                        <h3>
-                                            <?= date("d/m/Y", strtotime($post['post_date'])) . " à " . date("H:i", strtotime($post['post_date'])); ?>
-                                        </h3>
+                                        <div class="name">
+                                            <h1>
+                                                <?= $_SESSION["user_name"]; ?>
+                                            </h1>
+                                            <h2>
+                                                <?= $_SESSION["user_nickname"]; ?>
+                                            </h2>
+                                            <h3>
+                                                <?= date("d/m/Y", strtotime($post['post_date'])) . " à " . date("H:i", strtotime($post['post_date'])); ?>
+                                            </h3>
+                                        </div>
                                     </div>
+
                                 </div>
+                                <form action="delete.php" method="POST">
+                                    <input type="hidden" name="form" value="formulaire_supp_post" />
+                                    <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>" />
 
+                                    <button class="iconbtn" type="submit">
+                                        <img class="icons deletebtn" src="../images/icons/trash-2.svg" alt="delete" />
+                                    </button>
+                                </form>
                             </div>
-                            <form action="delete.php" method="POST">
-                                <input type="hidden" name="form" value="formulaire_supp_post" />
-                                <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>" />
 
-                                <button type="submit">
-                                    <img class="icons deletebtn" src="../images/icons/trash-2.svg" alt="delete" />
-                                </button>
-                            </form>
-                        </div>
+                            <div class="textinput">
 
-                        <div class="textinput">
+                                <p>
+                                    <?= $post["post_content"] ?>
+                                </p>
+                                <img class="media" src="<?= $post_pic['post_pic'] ?>" alt="🖼️" />
+                            </div>
 
-                            <p>
-                                <?= $post["post_content"] ?>
-                            </p>
-                            <img class="media" src="<?= $post_pic['post_pic'] ?>" alt="🖼️" />
-                        </div>
-
-                        <div class="interactions">
-                            <img class="icons" src="../images/icons/bookmark.svg" alt="" />
-                            <div class="reactions">
-                                <img class="icons" src="../images/icons/zap.svg" alt="like" /><img class="icons"
-                                    src="../images/icons/navigation.svg" alt="send" /><img class="icons"
-                                    src="../images/icons/message-square.svg" alt="commentaire" />
+                            <div class="interactions">
+                                <img class="icons" src="../images/icons/bookmark.svg" alt="" />
+                                <div class="reactions">
+                                    <img class="icons" src="../images/icons/zap.svg" alt="like" /><img class="icons"
+                                        src="../images/icons/navigation.svg" alt="send" /><img class="icons"
+                                        src="../images/icons/message-square.svg" alt="commentaire" />
+                                </div>
                             </div>
                         </div>
+
+
                     </div>
-
-
-                </div>
+                <?php } ?>
                 <?php
             }
             ?>

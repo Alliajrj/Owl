@@ -14,6 +14,8 @@ h3 {
 }
 
 p {
+    display: flex;
+    flex-wrap: wrap;
     font-weight: 500;
     font-size: 14px;
 }
@@ -37,4 +39,3 @@ p {
     padding: 8px;
     gap: 16px;
 }
- 

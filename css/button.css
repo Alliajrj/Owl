@@ -6,6 +6,29 @@ button {
     padding: 8px;
     gap: 8px;
     border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.iconbtn {
+    background-color: transparent;
+    transition: transform 0.2s;
+    transform: scale(1);
+}
+
+.iconbtn:hover{
+    transform: scale(1.2);
+}
+
+.bootstrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 8px;
+    border: none;
 
     color: rgb(255, 228, 228);
     background: rgba(0, 0, 0, 0.3);
@@ -13,7 +36,7 @@ button {
     font-size: 18px;
 }
 
-button:hover {
+.bootstrap:hover {
     color: rgb(255, 228, 228);
     color: #9e6c5c;
     background: rgba(0, 0, 0, 0.8);
@@ -26,4 +49,14 @@ button:hover {
     padding: 8px;
     gap: 16px;
 }
-/* background: rgba(255, 228, 228, 0.3); */
+
+.buttons > button {
+    color: rgb(255, 228, 228);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.buttons > button:hover {
+    color: rgb(255, 228, 228);
+    color: #9e6c5c;
+    background: rgba(0, 0, 0, 0.6);
+}

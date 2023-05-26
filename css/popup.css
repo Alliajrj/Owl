@@ -20,7 +20,7 @@
     background: rgba(38, 26, 22, 0.8);
     backdrop-filter: blur(16px);
     border-radius: 32px;
-    height: 80vh;
+    height: 90vh;
     max-width: 85vw;
 }
 
@@ -113,6 +113,25 @@
     height: 20vh;
     padding: 16px;
     max-width: 90%;
+    overflow-y: scroll;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px black;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffbcbc;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #47332c;
 }
 
 .tags-post {
@@ -121,7 +140,7 @@
     text-align: center;
     width: 100%;
     height: 100vh;
-    gap: 16px;
+    gap: 8px;
 }
 
 .tags-post > ul {
@@ -129,7 +148,6 @@
 }
 
 @media screen and (min-width: 1000px) {
-
     .card > div {
         display: flex;
         max-width: 45vw;
@@ -140,57 +158,106 @@
         flex-wrap: wrap;
         justify-content: center;
         columns: 1;
-        gap: 16px 8px;
+        gap: 8px;
     }
 
-    ul > li {
+    ul > li > button {
         width: 15vw;
     }
 }
 
-ul > li {
+ul > li > button {
     border-radius: 16px;
-    margin-bottom: 8px;
 }
 
 .couleur-tag-1 {
+    color: rgb(255, 228, 228);
     background-color: rgba(124, 234, 241, 0.3);
 }
 
+.couleur-tag-1:hover {
+    background-color: rgba(71, 160, 167, 0.3);
+}
+
 .couleur-tag-2 {
+    color: rgb(255, 228, 228);
     background-color: rgba(107, 192, 115, 0.3);
 }
 
+.couleur-tag-2:hover {
+    background-color: rgba(57, 123, 64, 0.3);
+}
+
 .couleur-tag-3 {
+    color: rgb(255, 228, 228);
     background-color: rgba(222, 137, 89, 0.3);
 }
 
+.couleur-tag-3:hover {
+    background-color: rgba(141, 81, 47, 0.3);
+}
+
 .couleur-tag-4 {
+    color: rgb(255, 228, 228);
     background-color: rgba(45, 96, 142, 0.3);
 }
 
+.couleur-tag-4:hover {
+    background-color: rgba(17, 50, 79, 0.3);
+}
+
 .couleur-tag-5 {
+    color: rgb(255, 228, 228);
     background-color: rgba(165, 73, 198, 0.3);
 }
 
+.couleur-tag-5:hover {
+    background-color: rgba(86, 30, 106, 0.3);
+}
+
 .couleur-tag-6 {
+    color: rgb(255, 228, 228);
     background-color: rgba(235, 219, 134, 0.3);
 }
 
+.couleur-tag-6:hover {
+    background-color: rgba(147, 133, 65, 0.3);
+}
+
 .couleur-tag-7 {
+    color: rgb(255, 228, 228);
     background-color: rgba(255, 111, 223, 0.3);
 }
 
+.couleur-tag-7:hover {
+    background-color: rgba(199, 55, 168, 0.3);
+}
+
 .couleur-tag-8 {
+    color: rgb(255, 228, 228);
     background-color: rgba(233, 78, 78, 0.3);
 }
 
+.couleur-tag-8:hover {
+    background-color: rgba(159, 41, 41, 0.3);
+}
+
 .couleur-tag-9 {
+    color: rgb(255, 228, 228);
     background-color: rgba(34, 158, 62, 0.3);
 }
 
+.couleur-tag-9:hover {
+    background-color: rgba(19, 95, 37, 0.3);
+}
+
 .couleur-tag-10 {
+    color: rgb(255, 228, 228);
     background-color: rgba(114, 138, 183, 0.3);
+}
+
+.couleur-tag-10:hover {
+    background-color: rgba(55, 75, 112, 0.3);
 }
 
 .bottom {

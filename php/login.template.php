@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="d-flex d-flex-column justify-content-center m-3">
-                <button type="submit" id="login" name="send" class="btn d-flex justify-content-center">
+                <button type="submit" id="login" name="send" class="btn d-flex justify-content-center bootstrap">
                     Connexion
                 </button>
             </div>

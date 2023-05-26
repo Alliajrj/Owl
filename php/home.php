@@ -9,13 +9,14 @@
     <title>Owl</title>
     <script src="../javascript/sidebar.js" defer></script>
     <script src="../javascript/modal.js" defer></script>
+    <script src="../javascript/filtertag.js" defer></script>
 </head>
 
 <body>
     <?php
     require_once '../conf/database.php';
     ini_set("date.timezone", "Europe/Paris");
-    $request = $database->prepare("SELECT * FROM posts ORDER BY post_date DESC");
+    $request = $database->prepare("SELECT * FROM posts INNER JOIN users ON users.user_id = posts.post_author_id ORDER BY post_date DESC");
     $request->execute();
     $posts = $request->fetchAll(PDO::FETCH_ASSOC);
 
@@ -47,8 +48,9 @@
             ) {
                 $post_content = $_POST['post_content'];
                 $userid = $_POST['userid'];
-                $data = ["post_content" => $post_content, "userid" => $userid];
-                $request_insert = $database->prepare("INSERT INTO posts (post_author_id, post_content, post_date) VALUES (:userid, :post_content, NOW())");
+                $tag = $_POST['tag'];
+                $data = ["post_content" => $post_content, "userid" => $userid, "post_tag" => $tag];
+                $request_insert = $database->prepare("INSERT INTO posts (post_author_id, post_content, post_date, post_tag) VALUES (:userid, :post_content, NOW(), :post_tag)");
                 $post_inserted = $request_insert->execute($data);
                 header("Location: ../php/home.php");
             }
@@ -59,51 +61,67 @@
     <div class="background">
         <div class="logsign">
             <h1>Envie de lire la suite ?</h1>
-            <a href="../php/register.php"><button>Inscrivez-vous !</button></a>
+            <a href="../php/register.php"><button class="bootstrap">Inscrivez-vous !</button></a>
             <p>Déjà inscrit ? <a class="link" href="../php/login.php" class="link">Connectez-vous !</a></p>
         </div>
     </div>
     <div class="card hidden">
         <div>
-
-            <form class="post" action="home.php" method="POST">
-                <div class="top">
-                    <button class="close" type="close" value="Close"><img class="icons" src="../images/icons/x.svg"
-                            alt="close" />
+            <div class="top">
+                <button class="close iconbtn" type="close" value="Close"><img class="icons" src="../images/icons/x.svg"
+                        alt="close" />
+                </button>
+                <form class="post" action="home.php" method="POST">
+                    <button class="iconbtn" type="submit" value="Send"><img class="icons"
+                            src="../images/icons/check.svg" alt="confirm" />
                     </button>
-                    <button type="submit" value="Send"><img class="icons" src="../images/icons/check.svg"
-                            alt="confirm" />
-                    </button>
-                </div>
-                <div class="write">
+            </div>
+            <div class="write">
 
-                    <input type="hidden" name="form" value="formulaire_ajout_post">
-                    <input type="hidden" name="userid" value="<?= $_SESSION['user_id']; ?>">
+                <input type="hidden" name="form" value="formulaire_ajout_post">
+                <input type="hidden" name="userid" value="<?= $_SESSION['user_id']; ?>">
 
-                    <input class="text-input" placeholder=". . ." name="post_content" id="post_content" cols="30"
-                        rows="10" required></input>
-                </div>
+                <textarea class="text-input" placeholder=". . ." name="post_content" id="post_content" cols="30"
+                    rows="10" required></textarea>
+
+            </div>
+            <div>
+                <select name="tag" id="">
+                    <option value="mystere">Mystère</option>
+                    <option value="crime">Crime</option>
+                    <option value="non-resolu">Non résolu</option>
+                    <option value="meurtre">Meurtre</option>
+                    <option value="investigation">Investigation</option>
+                    <option value="faits-divers">Faits divers</option>
+                    <option value="enigmes">Enigmes</option>
+                    <option value="preuves">Preuves</option>
+                    <option value="theories">Théories</option>
+                    <option value="paranormal">Paranormal</option>
+                </select>
+
+            </div>
 
 
             </form>
 
             <div class="tags-post">
                 <ul>
-                    <li class="couleur-tag-1">Mystère</li>
-                    <li class="couleur-tag-2">Crime</li>
-                    <li class="couleur-tag-3">Non résolu</li>
-                    <li class="couleur-tag-4">Meurtre</li>
-                    <li class="couleur-tag-5">Investigation</li>
-                    <li class="couleur-tag-6">Faits divers</li>
-                    <li class="couleur-tag-7">Enigmes</li>
-                    <li class="couleur-tag-8">Preuves</li>
-                    <li class="couleur-tag-9">Théories</li>
-                    <li class="couleur-tag-10">paranormal</li>
+                    <li><button class="filter couleur-tag-1">Mystère</button></li>
+                    <li><button class="filter couleur-tag-2">Crime</button></li>
+                    <li><button class="filter couleur-tag-3">Non résolu</button></li>
+                    <li><button class="filter couleur-tag-4">Meurtre</button></li>
+                    <li><button class="filter couleur-tag-5">Investigation</button></li>
+                    <li><button class="filter couleur-tag-6">Faits divers</button></li>
+                    <li><button class="filter couleur-tag-7">Enigmes</button></li>
+                    <li><button class="filter couleur-tag-8">Preuves</button></li>
+                    <li><button class="filter couleur-tag-9">Théories</button></li>
+                    <li><button class="filter couleur-tag-10">Paranormal</button></li>
                 </ul>
             </div>
             <div class="bottom">
-                <img class="icons" src="../images/icons/file-plus.svg" alt="add file" />
-                <img class="icons" src="../images/icons/image.svg" alt="add image" />
+                <button class="iconbtn"><img class="icons" src="../images/icons/file-plus.svg"
+                        alt="add file" /></button>
+                <button class="iconbtn"><img class="icons" src="../images/icons/image.svg" alt="add image" /></button>
             </div>
         </div>
     </div>
@@ -117,16 +135,17 @@
         </form>
         <div class="tagspc">
             <ul>
-                <li class="couleur-tag-1">Mystère</li>
-                <li class="couleur-tag-2">Crime</li>
-                <li class="couleur-tag-3">Non résolu</li>
-                <li class="couleur-tag-4">Meurtre</li>
-                <li class="couleur-tag-5">Investigation</li>
-                <li class="couleur-tag-6">Faits divers</li>
-                <li class="couleur-tag-7">Enigmes</li>
-                <li class="couleur-tag-8">Preuves</li>
-                <li class="couleur-tag-9">Théories</li>
-                <li class="couleur-tag-10">Paranormal</li>
+                <li><button class="filter couleur-tag-1">Mystère</button></li>
+                <li><button class="filter couleur-tag-2">Crime</button></li>
+                <li><button class="filter couleur-tag-3">Non résolu</button></li>
+                <li><button class="filter couleur-tag-4">Meurtre</button></li>
+                <li><button class="filter couleur-tag-5">Investigation</button></li>
+                <li><button class="filter couleur-tag-6">Faits divers</button></li>
+                <li><button class="filter couleur-tag-7">Enigmes</button></li>
+                <li><button class="filter couleur-tag-8">Preuves</button></li>
+                <li><button class="filter couleur-tag-9">Théories</button></li>
+                <li><button class="filter couleur-tag-10">Paranormal</button></li>
+                <li><button class="filter bootstrap reset">Tous</button></li>
             </ul>
         </div>
     </div>
@@ -197,7 +216,7 @@
             <?php } ?>
         </ol>
         <div class="feather">
-            <img src="../images/icons/feather.svg" alt="" id="plume" />
+            <button class="iconbtn"><img src="../images/icons/feather.svg" alt="" id="plume" /></button>
         </div>
     </div>
     </div>
@@ -214,33 +233,34 @@
         </header>
         <div class="tags">
             <ul>
-                <li class="couleur-tag-1">Mystère</li>
-                <li class="couleur-tag-2">Crime</li>
-                <li class="couleur-tag-3">Non résolu</li>
-                <li class="couleur-tag-4">Meurtre</li>
-                <li class="couleur-tag-5">Investigation</li>
-                <li class="couleur-tag-6">Faits divers</li>
-                <li class="couleur-tag-7">Enigmes</li>
-                <li class="couleur-tag-8">Preuves</li>
-                <li class="couleur-tag-9">Théories</li>
-                <li class="couleur-tag-10">Paranormal</li>
+                <li><button class="filter couleur-tag-1">Mystère</button></li>
+                <li><button class="filter couleur-tag-2">Crime</button></li>
+                <li><button class="filter couleur-tag-3">Non résolu</button></li>
+                <li><button class="filter couleur-tag-4">Meurtre</button></li>
+                <li><button class="filter couleur-tag-5">Investigation</button></li>
+                <li><button class="filter couleur-tag-6">Faits divers</button></li>
+                <li><button class="filter couleur-tag-7">Enigmes</button></li>
+                <li><button class="filter couleur-tag-8">Preuves</button></li>
+                <li><button class="filter couleur-tag-9">Théories</button></li>
+                <li><button class="filter couleur-tag-10">Paranormal</button></li>
+                <li><button class="filter bootstrap reset">Tous</button></li>
             </ul>
         </div>
         <div class="container">
             <?php
             foreach ($posts as $post) {
                 ?>
-                <div class="posts">
+                <div class="posts <?php echo $post['post_tag']; ?>">
                     <div>
                         <div class="user">
                             <img class="round" src="<?= $user_pic['user_pic'] ?>" alt="profile pic" />
                             <div class="name">
                                 <div class="name">
                                     <h1>
-                                        <?= $_SESSION["user_name"]; ?>
+                                        <?= $post["user_name"]; ?>
                                     </h1>
                                     <h2>
-                                        <?= $_SESSION["user_nickname"]; ?>
+                                        <?= $post["user_nickname"]; ?>
                                     </h2>
                                     <h3>
                                         <?= date("d/m/Y", strtotime($post['post_date'])) . " à " . date("H:i", strtotime($post['post_date'])); ?>
@@ -279,7 +299,7 @@
             <img src="../images/icons/star.svg" alt="notifications" />
             <img src="../images/icons/key.svg" alt="search" />
         </div>
-        <img src="../images/icons/feather.svg" alt="write a post" id="plume2" />
+        <button class="iconbtn"><img src="../images/icons/feather.svg" alt="write a post" id="plume2" /></button>
     </div>
 
     <?php
