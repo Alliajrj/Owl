@@ -1,5 +1,17 @@
 .card {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 20;
+    transition: 0.2s;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    inset: 0; /* gere le top left right bottom */
+}
+
+.card > div {
+    display: flex;
     flex-direction: column;
     margin-top: 10px;
     padding: 32px;
@@ -9,9 +21,7 @@
     backdrop-filter: blur(16px);
     border-radius: 32px;
     height: 80vh;
-    max-width: 45vw;
-    position: fixed;
-    transition: 0.2s;
+    max-width: 85vw;
 }
 
 .card.hidden {
@@ -60,25 +70,11 @@
     transform: scale(1);
 }
 
-/* .cardback {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(15px);
-    transform: scale(1);
-    transition: 0.6s;
-} */
-
 .logsign {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
     position: fixed;
     background: rgba(38, 26, 22, 0.8);
@@ -133,6 +129,12 @@
 }
 
 @media screen and (min-width: 1000px) {
+
+    .card > div {
+        display: flex;
+        max-width: 45vw;
+    }
+
     .tags-post > ul {
         display: flex;
         flex-wrap: wrap;

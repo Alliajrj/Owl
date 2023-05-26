@@ -63,8 +63,8 @@
             <p>Déjà inscrit ? <a class="link" href="../php/login.php" class="link">Connectez-vous !</a></p>
         </div>
     </div>
-    <div class="cardback">
-        <div class="card hidden">
+    <div class="card hidden">
+        <div>
 
             <form class="post" action="home.php" method="POST">
                 <div class="top">
@@ -237,10 +237,10 @@
                             <div class="name">
                                 <div class="name">
                                     <h1>
-                                        <?= $post["post_id"]; ?>
+                                        <?= $_SESSION["user_name"]; ?>
                                     </h1>
                                     <h2>
-                                        <?= $post["post_author_id"]; ?>
+                                        <?= $_SESSION["user_nickname"]; ?>
                                     </h2>
                                     <h3>
                                         <?= date("d/m/Y", strtotime($post['post_date'])) . " à " . date("H:i", strtotime($post['post_date'])); ?>

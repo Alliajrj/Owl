@@ -12,6 +12,18 @@
     <script src="../javascript/deletebutton.js" defer></script>
 </head>
 
+<?php
+require_once '../conf/database.php';
+ini_set("date.timezone", "Europe/Paris");
+$request = $database->prepare("SELECT * FROM posts ORDER BY post_date DESC");
+$request->execute();
+$posts = $request->fetchAll(PDO::FETCH_ASSOC);
+
+$request = $database->prepare("SELECT * FROM users");
+$request->execute();
+$users = $request->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <body>
     <div class="deletecard hidden">
         <p>Êtes-vous sûr(e) de vouloir supprimer ce post ?</p>
@@ -30,17 +42,21 @@
     <div class="wrapper"></div>
     <div class="sidebar">
 
-        <div class="user">
-            <img class="round" src="<?= $user_pic['user_pic'] ?>" alt="profile pic" />
-            <div class="name">
-                <h1>
-                    <?= $post["post_id"]; ?>
-                </h1>
-                <h2>
-                    <?= $post["post_author_id"]; ?>
-                </h2>
+        <?php if (isset($_SESSION['user_name'])) { ?>
+            <div class="user">
+                <img class="round" src="<?= $user_pic['user_pic'] ?>" alt="profile pic" />
+                <div class="name">
+
+                    <h1>
+                        <?php echo $_SESSION['user_name']; ?>
+                    </h1>
+                    <h2>
+                        <?php echo $_SESSION["user_nickname"]; ?>
+                    </h2>
+
+                </div>
             </div>
-        </div>
+        <?php } ?>
 
         <img class="minus" src="../images/icons/minus.svg" alt="minus" />
         <ol>
@@ -101,10 +117,10 @@
                                 <div class="name">
                                     <div class="name">
                                         <h1>
-                                            <?= $post["post_id"]; ?>
+                                            <?= $_SESSION["user_name"]; ?>
                                         </h1>
                                         <h2>
-                                            <?= $post["post_author_id"]; ?>
+                                            <?= $_SESSION["user_nickname"]; ?>
                                         </h2>
                                         <h3>
                                             <?= date("d/m/Y", strtotime($post['post_date'])) . " à " . date("H:i", strtotime($post['post_date'])); ?>
