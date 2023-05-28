@@ -103,18 +103,31 @@ $users = $request->fetchAll(PDO::FETCH_ASSOC);
     <div class="main">
         <header>
             <div class="ghost"></div>
-            <img class="profil" src="../images/PPAli.jpg" alt="profile pic" />
+            <?php if (isset($_SESSION['user_name'])) { ?>
+                <img class="profil" src="<?= $user_pic['user_pic'] ?>" alt="profile pic" />
+            <?php } ?>
 
             <img class="logo" src="../images/logoowl.png" alt="logo" />
 
             <img class="menu" src="../images/icons/menu.svg" alt="menu" />
             <div class="ghost"></div>
         </header>
+        <div class="tags">
+            <ul>
+                <li><button class="filter couleur-tag-1">Mystère</button></li>
+                <li><button class="filter couleur-tag-2">Crime</button></li>
+                <li><button class="filter couleur-tag-3">Non résolu</button></li>
+                <li><button class="filter couleur-tag-4">Meurtre</button></li>
+                <li><button class="filter couleur-tag-5">Investigation</button></li>
+                <li><button class="filter couleur-tag-6">Faits divers</button></li>
+                <li><button class="filter couleur-tag-7">Enigmes</button></li>
+                <li><button class="filter couleur-tag-8">Preuves</button></li>
+                <li><button class="filter couleur-tag-9">Théories</button></li>
+                <li><button class="filter couleur-tag-10">Paranormal</button></li>
+                <li><button class="filter bootstrap reset">Tous</button></li>
+            </ul>
+        </div>
         <div class="container">
-            <div class="buttons">
-                <button>POSTS</button>
-                <button>MEDIAS</button>
-            </div>
             <?php
             foreach ($posts as $post) {
                 ?>

@@ -79,7 +79,7 @@
     <div class="card hidden">
         <div>
             <div class="top">
-                <button class="close iconbtn" type="close" value="Close"><img class="icons" src="../images/icons/x.svg"
+                <button class="close iconbtn" type="close" value="Close" ><img class="icons" src="../images/icons/x.svg"
                         alt="close" />
                 </button>
                 <form class="post" action="index.php" method="POST" enctype="multipart/form-data">
@@ -95,9 +95,6 @@
                 <textarea class="text-input" placeholder=". . ." name="post_content" id="post_content" cols="30"
                     rows="10" required></textarea>
 
-            </div>
-            <div>
-                <input type="file" accept="img/jpeg img/png" name="image_url">
             </div>
             <div>
                 <select name="tag" id="">
@@ -133,9 +130,13 @@
                 </ul>
             </div>
             <div class="bottom">
-                <button class="iconbtn"><img class="icons" src="../images/icons/file-plus.svg"
-                        alt="add file" /></button>
-                <button class="iconbtn"><img class="icons" src="../images/icons/image.svg" alt="add image" /></button>
+                <label>
+                    <span>
+                        <input class="imgpost" type="file" accept="img/jpeg img/png" name="image_url">
+                        <img class="icons iconbtn" src="../images/icons/image.svg" alt="add image">
+                    </span>
+                </label>
+
             </div>
         </div>
     </div>

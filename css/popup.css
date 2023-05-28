@@ -76,6 +76,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    text-decoration: none;
     position: fixed;
     background: rgba(38, 26, 22, 0.8);
     backdrop-filter: blur(16px);
@@ -171,7 +172,7 @@ ul > li > button {
 }
 
 .couleur-tag-1 {
-    color: rgb(255, 228, 228);
+    color: var(--text-color);
     background-color: rgba(124, 234, 241, 0.3);
 }
 
@@ -180,7 +181,7 @@ ul > li > button {
 }
 
 .couleur-tag-2 {
-    color: rgb(255, 228, 228);
+    color: var(--text-color);
     background-color: rgba(107, 192, 115, 0.3);
 }
 
@@ -189,7 +190,7 @@ ul > li > button {
 }
 
 .couleur-tag-3 {
-    color: rgb(255, 228, 228);
+    color: var(--text-color);
     background-color: rgba(222, 137, 89, 0.3);
 }
 
@@ -198,7 +199,7 @@ ul > li > button {
 }
 
 .couleur-tag-4 {
-    color: rgb(255, 228, 228);
+    color: var(--text-color);
     background-color: rgba(45, 96, 142, 0.3);
 }
 
@@ -207,7 +208,7 @@ ul > li > button {
 }
 
 .couleur-tag-5 {
-    color: rgb(255, 228, 228);
+    color: var(--text-color);
     background-color: rgba(165, 73, 198, 0.3);
 }
 
@@ -216,7 +217,7 @@ ul > li > button {
 }
 
 .couleur-tag-6 {
-    color: rgb(255, 228, 228);
+    color: var(--text-color);
     background-color: rgba(235, 219, 134, 0.3);
 }
 
@@ -225,7 +226,7 @@ ul > li > button {
 }
 
 .couleur-tag-7 {
-    color: rgb(255, 228, 228);
+    color: var(--text-color);
     background-color: rgba(255, 111, 223, 0.3);
 }
 
@@ -234,7 +235,7 @@ ul > li > button {
 }
 
 .couleur-tag-8 {
-    color: rgb(255, 228, 228);
+    color: var(--text-color);
     background-color: rgba(233, 78, 78, 0.3);
 }
 
@@ -243,7 +244,7 @@ ul > li > button {
 }
 
 .couleur-tag-9 {
-    color: rgb(255, 228, 228);
+    color: var(--text-color);
     background-color: rgba(34, 158, 62, 0.3);
 }
 
@@ -252,7 +253,7 @@ ul > li > button {
 }
 
 .couleur-tag-10 {
-    color: rgb(255, 228, 228);
+    color: var(--text-color);
     background-color: rgba(114, 138, 183, 0.3);
 }
 

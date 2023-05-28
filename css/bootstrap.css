@@ -9,16 +9,16 @@ body {
         #3b2b26 73.85%,
         #2c211d 95.21%
     );
-    color: rgb(255, 228, 228);
+    color: var(--text-color);
 }
 
 .btn {
-    background-color: #2c211d;
-    color: rgb(255, 228, 228);
+    background-color: var(--background-5);
+    color: var(--text-color);
 }
 
 .text {
-    color: #3b2b26;
+    color: var(--background-4);
 }
 
 .link {
@@ -27,5 +27,5 @@ body {
 }
 
 .link:hover {
-    color: #9e6c5c;
+    color: var(--text-color-hover);
 }
