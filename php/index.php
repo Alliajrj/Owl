@@ -79,7 +79,7 @@
     <div class="card hidden">
         <div>
             <div class="top">
-                <button class="close iconbtn" type="close" value="Close" ><img class="icons" src="../images/icons/x.svg"
+                <button class="close iconbtn" type="close" value="Close"><img class="icons" src="../images/icons/x.svg"
                         alt="close" />
                 </button>
                 <form class="post" action="index.php" method="POST" enctype="multipart/form-data">
@@ -113,7 +113,7 @@
             </div>
 
 
-            </form>
+
 
             <div class="tags-post">
                 <ul>
@@ -138,7 +138,9 @@
                 </label>
 
             </div>
+
         </div>
+        </form>
     </div>
 
     <div class="research">
@@ -297,7 +299,7 @@
                         <div class="interactions">
                             <img class="icons" src="../images/icons/bookmark.svg" alt="" />
                             <div class="reactions">
-                                <img class="icons" src="../images/icons/zap.svg" alt="like" /><img class="icons"
+                                <img class="icons like" src="../images/icons/zap.svg" alt="like" /><img class="icons"
                                     src="../images/icons/navigation.svg" alt="send" /><img class="icons"
                                     src="../images/icons/message-square.svg" alt="commentaire" />
                             </div>
