@@ -26,7 +26,8 @@ $users = $request->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <div class="research">
         <form action="" method="GET">
-            <div>
+            <div class="interactions">
+            <img class="icons key" src="../images/icons/key.svg" alt="">
                 <input class="searchbar" placeholder=". . ." type="text" name="recherche" id="recherche">
             </div>
             <img class="minus" src="../images/icons/minus.svg" alt="minus" />
@@ -189,10 +190,7 @@ $users = $request->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
     <div class="navbarbottom">
-        <div class="navbarleft">
-            <img src="../images/icons/star.svg" alt="notifications" />
-            <img src="../images/icons/key.svg" alt="search" />
-        </div>
+    
     </div>
 </body>
 

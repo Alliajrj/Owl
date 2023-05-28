@@ -16,7 +16,7 @@
     <div class="container">
         <img src="../images/logoowl.png" alt="logo" class="rounded shadow d-block mx-auto m-3" width="55px"
             height="55px" />
-        <form action="../php/register.php" class="d-flex flex-column justify-content-center" method="POST">
+        <form action="../php/register.php" class="d-flex flex-column justify-content-center" method="POST" enctype="multipart/form-data">
             <div class="d-flex flex-column align-items-center">
                 <div class="form-floating col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-2 mb-3">
                     <input type="text" class="form-control" name="user_name" id="name" placeholder=" " required />

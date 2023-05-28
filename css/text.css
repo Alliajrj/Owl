@@ -13,6 +13,11 @@ h3 {
     font-size: 8px;
 }
 
+h4 {
+    font-weight: 400;
+    font-size: 18px;
+}
+
 p {
     display: flex;
     flex-wrap: wrap;

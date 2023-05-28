@@ -145,7 +145,8 @@
 
     <div class="research">
         <form action="" method="GET">
-            <div>
+            <div class="interactions">
+                <img class="icons key" src="../images/icons/key.svg" alt="">
                 <input class="searchbar" placeholder=". . ." type="text" name="recherche" id="recherche">
             </div>
             <img class="minus" src="../images/icons/minus.svg" alt="minus" />
@@ -191,32 +192,46 @@
         <ol>
             <li>
                 <a href="#">
-                    <img class="icons" src="../images/icons/home.svg" alt="home" />Home</a>
+                    <img class="icons" src="../images/icons/home.svg" alt="home" />
+                    <h4>Home</h4>
+                </a>
             </li>
             <li>
                 <a href="#">
-                    <img class="icons" src="../images/icons/book-open.svg" alt="news" />News</a>
+                    <img class="icons" src="../images/icons/book-open.svg" alt="news" />
+                    <h4>News</h4>
+                </a>
             </li>
             <li>
                 <a href="#">
-                    <img class="icons" src="../images/icons/star.svg" alt="notifications" />Notifications</a>
+                    <img class="icons" src="../images/icons/star.svg" alt="notifications" />
+                    <h4>Notifications</h4>
+                </a>
             </li>
             <li>
                 <a href="#">
-                    <img class="icons" src="../images/icons/mail.svg" alt="messages" />Messages</a>
+                    <img class="icons" src="../images/icons/mail.svg" alt="messages" />
+                    <h4>Messages</h4>
+                </a>
             </li>
             <li>
                 <a href="#">
-                    <img class="icons" src="../images/icons/bookmark.svg" alt="bookmark" />Bookmarks</a>
+                    <img class="icons" src="../images/icons/bookmark.svg" alt="bookmark" />
+                    <h4>Bookmarks</h4>
+                </a>
             </li>
             <li>
                 <a href="#">
-                    <img class="icons" src="../images/icons/settings.svg" alt="paramètres" />Paramètres</a>
+                    <img class="icons" src="../images/icons/settings.svg" alt="paramètres" />
+                    <h4>Paramètres</h4>
+                </a>
             </li>
             <?php if (isset($_SESSION['user_name'])) { ?>
                 <li>
                     <a href="../php/logout.php">
-                        <img class="icons" src="../images/icons/power.svg" alt="déconnexion" />Déconnexion</a>
+                        <img class="icons" src="../images/icons/power.svg" alt="déconnexion" />
+                        <h4>Déconnexion</h4>
+                    </a>
                 </li>
             <?php } ?>
             <?php if (!isset($_SESSION['user_name'])) { ?>
@@ -291,9 +306,9 @@
                             <p>
                                 <?= $post["post_content"] ?>
                             </p>
-                            <?php
-                            if (!isset($post['image_url'])) { ?>
-                                <img class="media" src="../uploads/<?= $post['image_url'] ?>" alt="🖼️" /> <?php } ?>
+                            <?php if($post["image_url"]): ?>
+                                <img class="media" src="../uploads/<?= $post['image_url'] ?>" alt="🖼️" /> 
+                                <?php endif; ?>
                         </div>
 
                         <div class="interactions">
@@ -314,11 +329,9 @@
         </div>
     </div>
     <div class="navbarbottom">
-        <div class="navbarleft">
-            <img src="../images/icons/star.svg" alt="notifications" />
-            <img src="../images/icons/key.svg" alt="search" />
+        <div class="feather2">
+            <button class="iconbtn "><img src="../images/icons/feather.svg" alt="write a post" id="plume2" /></button>
         </div>
-        <button class="iconbtn"><img src="../images/icons/feather.svg" alt="write a post" id="plume2" /></button>
     </div>
 
     <?php

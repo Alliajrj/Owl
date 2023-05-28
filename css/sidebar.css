@@ -1,3 +1,21 @@
+ol > li > a {
+    display: flex;
+    align-items: center;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+ol > li > a > h4 {
+    animation: typing 3s steps(40, end);
+}
+
 li {
     list-style: none;
     text-decoration: none;
@@ -80,7 +98,6 @@ li {
 
 .sidebar a {
     text-decoration: none;
-    display: block;
     color: #ffe4e4;
     transition: 0.3s;
 }
@@ -111,7 +128,6 @@ li {
         left: 0;
         top: 0;
         bottom: 0;
-        gap: 22px;
         z-index: 16;
         transition: all 0.5s ease;
     }
@@ -124,10 +140,11 @@ li {
     .searchbar {
         background-image: url(../images/icons/key.svg);
         background-position: left;
-        display:inline-block ;
+        display: inline-block;
     }
     .feather {
         display: flex;
+        justify-items: flex-end;
         padding: 16px 8px;
         bottom: 0;
         right: 0;
