@@ -12,6 +12,5 @@ if (storage) {
 }
 
 submit.addEventListener("click", () => {
-    localStorage.clear();
+    localStorage.removeItem(".text-input");
 });
-
