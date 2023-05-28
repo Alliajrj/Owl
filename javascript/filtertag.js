@@ -163,5 +163,5 @@ buttonParanormal.forEach((btn) => {
 let resetbtn = document.querySelector(".reset");
 
 resetbtn.addEventListener("click", () => {
-    document.location.href = "home.php";
+    document.location.href = "index.php";
 });

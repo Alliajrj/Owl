@@ -43,6 +43,7 @@ $users = $request->fetchAll(PDO::FETCH_ASSOC);
                 <li><button class="filter couleur-tag-8">Preuves</button></li>
                 <li><button class="filter couleur-tag-9">Théories</button></li>
                 <li><button class="filter couleur-tag-10">Paranormal</button></li>
+                <li><button class="filter bootstrap reset">Tous</button></li>
             </ul>
         </div>
     </div>
@@ -69,7 +70,7 @@ $users = $request->fetchAll(PDO::FETCH_ASSOC);
         <img class="minus" src="../images/icons/minus.svg" alt="minus" />
         <ol>
             <li>
-                <a href="../php/home.php">
+                <a href="../php/index.php">
                     <img class="icons" src="../images/icons/home.svg" alt="home" />Home</a>
             </li>
             <li>

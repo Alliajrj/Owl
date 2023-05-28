@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +21,8 @@
             <?php foreach ($posts as $post) {
                 echo "<p>" . $post["post_content"] . "</p>";
                 echo date("d/m/Y", strtotime($post['post_date'])) .
-                    " à " . date("H:i", strtotime($post['post_date'])); ?>
+                    " à " . date("H:i", strtotime($post['post_date'])); 
+                    ?>
                 <form action="../php/delete.php" method="post">
                     <input type="hidden" name="form" value="formulaire_supp_post">
                     <input type="hidden" name="post_id" value="<?php echo $post['post_id'] ?>">

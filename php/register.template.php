@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="form-floating col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-2 mb-3">
-                    <input type="text" class="form-control" name="user_pic" id="profilepic"
+                    <input type="file" class="form-control" name="user_pic" id="profilepic"
                         placeholder="Photo de profil" />
                     <label class="text" for="photo de profil">Photo de profil</label>
                 </div>

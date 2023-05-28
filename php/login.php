@@ -21,7 +21,7 @@ if (isset($_POST['send'])) {
         $_SESSION['user_name'] = $user['user_name'];
         $_SESSION['user_nickname'] = $user['user_nickname'];
 
-        header("Location: ../php/home.php");
+        header("Location: ../php/index.php");
         die();
     } else {
         echo "Veuillez compléter tous les champs...";
