@@ -17,5 +17,5 @@ Owl is a school project developed as part of my web development course. It is a 
 - MySQL
 
 
-# Thank you for checking out my project!
+## Thank you for checking out my project!
 
